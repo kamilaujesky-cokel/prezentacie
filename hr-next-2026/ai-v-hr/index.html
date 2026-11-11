@@ -4396,5 +4396,9 @@ border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
   });
 })();
 </script>
+<script>
+document.addEventListener('keydown',e=>{if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey&&!e.altKey&&!(e.target&&e.target.isContentEditable)){e.preventDefault();document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}});
+document.addEventListener('dblclick',()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});});
+</script>
 </body>
 </html>

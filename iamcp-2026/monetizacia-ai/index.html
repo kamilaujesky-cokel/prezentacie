@@ -3712,8 +3712,9 @@ border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
 })();
 </script>
 <style>
-#fs-btn{position:fixed;right:18px;top:14px;z-index:2147483000;display:flex;align-items:center;gap:8px;font:600 14px var(--font,system-ui);border:0;border-radius:999px;padding:10px 16px;cursor:pointer;background:rgba(244,241,232,.92);color:#070606;box-shadow:0 4px 18px rgba(0,0,0,.35);opacity:.85;transition:opacity .2s}
+#fs-btn{position:fixed;right:18px;bottom:16px;z-index:2147483000;display:flex;align-items:center;gap:8px;font:600 14px var(--font,system-ui);border:0;border-radius:999px;padding:10px 16px;cursor:pointer;background:rgba(244,241,232,.92);color:#070606;box-shadow:0 4px 18px rgba(0,0,0,.35);opacity:.85;transition:opacity .4s}
 #fs-btn:hover{opacity:1}
+#fs-btn.idle{opacity:0;pointer-events:none}
 #fs-btn svg{width:16px;height:16px}
 :fullscreen #fs-btn,:-webkit-full-screen #fs-btn{display:none}
 @media print{#fs-btn{display:none!important}}
@@ -3728,6 +3729,8 @@ border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
   const toggle=()=>isFs()?exit():enter();
   if(!(root.requestFullscreen||root.webkitRequestFullscreen)) btn.style.display='none';
   btn.addEventListener('click',e=>{e.stopPropagation();toggle();btn.blur();});
+  let t; const wake=()=>{btn.classList.remove('idle'); clearTimeout(t); t=setTimeout(()=>btn.classList.add('idle'),3000);};
+  d.addEventListener('mousemove',wake); d.addEventListener('touchstart',wake,{passive:true}); wake();
   const sync=()=>{btn.style.display=isFs()?'none':'';};
   d.addEventListener('fullscreenchange',sync); d.addEventListener('webkitfullscreenchange',sync);
   d.addEventListener('keydown',e=>{if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey&&!e.altKey){e.preventDefault();toggle();}});

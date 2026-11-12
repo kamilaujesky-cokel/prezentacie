@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="ka-file" content="/Users/kamilaujesky/Documents/Hermes/Claude projekty/Content/vystupy/2026-11_iamcp-monetizacia-ai/iamcp-2026_prezentacia_v5-forbes-preco-co-ako.html">
 <title>IAMCP 2026 · Prečo firmy nevedia zarobiť na AI</title>
 <style>
 :root{--lime:#b3f647;--purple:#a068f1;--amber:#f4b860;--ink:#070606;--cream:#f4f1e8;--cream-raised:#faf8f1;--ink-55:rgba(7,6,6,.55);--ink-12:rgba(7,6,6,.12);
@@ -79,34 +78,10 @@ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
 .cta-l{flex:1;min-width:0}
 .qr{width:420px;height:420px;border-radius:24px;border:6px solid var(--ink);flex:0 0 auto}
 /* režim úprav */
-body.editing [data-edit]{outline:2px dashed rgba(160,104,241,.55);outline-offset:6px;border-radius:4px;cursor:text}
-body.editing [data-edit]:focus{outline:3px solid var(--purple)}
-body.editing [data-edit].changed{outline-color:var(--lime);outline-style:solid}
-#ka-bar{position:fixed;right:18px;top:14px;z-index:2147483000;display:flex;gap:8px;font-family:var(--font)}
-#ka-bar button{font:600 14px var(--font);border:0;border-radius:999px;padding:10px 18px;cursor:pointer;background:var(--cream);color:var(--ink);box-shadow:0 4px 18px rgba(0,0,0,.35)}
-#ka-bar button.primary{background:var(--lime)}
-#ka-bar button[hidden]{display:none}
-#ka-notes{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);width:min(900px,92vw);z-index:2147483000;background:rgba(7,6,6,.92);color:var(--cream);
 font:400 16px/1.45 var(--font);border-radius:18px;padding:16px 20px;box-shadow:0 10px 40px rgba(0,0,0,.5);display:none}
-#ka-notes.open{display:block}
-#ka-notes b{color:var(--lime);font-weight:600;display:block;margin-bottom:6px}
-#ka-notes [contenteditable=true]{outline:2px dashed rgba(179,246,71,.5);outline-offset:4px;border-radius:4px}
-#ka-toast{position:fixed;left:50%;top:70px;transform:translateX(-50%);z-index:2147483001;background:var(--lime);color:var(--ink);font:600 15px var(--font);
 padding:12px 20px;border-radius:999px;display:none;box-shadow:0 6px 24px rgba(0,0,0,.35)}
-#ka-cm{position:fixed;right:18px;top:64px;width:min(440px,92vw);z-index:2147483000;background:rgba(7,6,6,.94);color:var(--cream);
 font:400 15px/1.45 var(--font);border-radius:18px;padding:16px 18px;box-shadow:0 10px 40px rgba(0,0,0,.5);display:none}
-#ka-cm.open{display:block}
-#ka-cm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-#ka-cm-top b{color:var(--lime);font-weight:600}
-#ka-cm-x{background:none;border:0;color:var(--cream);font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
-#ka-cm-t{width:100%;box-sizing:border-box;resize:vertical;min-height:96px;background:#1a1818;color:var(--cream);border:1px solid rgba(244,241,232,.25);
 border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
-#ka-cm-t:focus{outline:2px solid var(--lime);border-color:transparent}
-#ka-cm-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}
-#ka-cm-info{font-size:13px;opacity:.7}
-#ka-cm-send{font:600 14px var(--font);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;background:var(--lime);color:var(--ink)}
-#ka-bar button.has{background:var(--purple);color:#fff}
-@media print{#ka-bar,#ka-notes,#ka-toast,#ka-cm{display:none!important}}
 
 /* v3: intro Kamil Aujesky + Cieľ 1 000 000 s mačkou */
 .ka-omne{padding:0}
@@ -389,10 +364,6 @@ border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
 </style>
 </head>
 <body>
-<div id="ka-bar"><button id="ka-notes-btn" type="button">Poznámky</button><button id="ka-cm-btn" type="button">Komentár pre AI</button><button id="ka-edit" type="button">Upraviť texty</button><button id="ka-save" class="primary" type="button" hidden>Poslať úpravy Hermesovi</button></div>
-<div id="ka-notes"><b id="ka-notes-h">Poznámky</b><div id="ka-notes-t"></div></div>
-<div id="ka-cm"><div id="ka-cm-top"><b id="ka-cm-h">Komentár pre AI</b><button id="ka-cm-x" type="button" aria-label="Zavrieť">×</button></div><textarea id="ka-cm-t" rows="4" placeholder="Napíšte, čo má AI na tomto slide zmeniť. Napríklad: daj sem screenshot z Copilota, skráť nadpis, pridaj príklad z HR."></textarea><div id="ka-cm-foot"><span id="ka-cm-info"></span><button id="ka-cm-send" class="primary" type="button">Poslať Hermesovi</button></div></div>
-<div id="ka-toast"></div>
 <deck-stage no-rail width="1920" height="1080">
 <section class="slide dark split" data-label="Titulka">
 
@@ -3664,68 +3635,7 @@ border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
   }
 })();
 </script>
-<script>
-(function(){
-  const FILE = document.querySelector('meta[name=ka-file]').content;
-  const deck = document.querySelector('deck-stage');
-  const norm = s => (s||'').replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim();
-  const els = [...document.querySelectorAll('[data-edit]')];
-  els.forEach(el => el.dataset.orig = norm(el.textContent));
-  const slides = [...deck.children].filter(n => n.tagName === 'SECTION');
-  slides.forEach(s => s.dataset.origNotes = s.dataset.speakerNotes || '');
-  let editing = false, cur = 0;
-  const $ = id => document.getElementById(id);
-  const notesBox = $('ka-notes'), notesTxt = $('ka-notes-t');
-  const cmBox = $('ka-cm'), cmTxt = $('ka-cm-t'), CMKEY = 'ka-cm:' + FILE;
-  let cms = {}; try { cms = JSON.parse(localStorage.getItem(CMKEY) || '{}'); } catch(e) {}
-  const cmList = () => slides.map((s,i)=>({slide:i+1,label:s.dataset.label,text:(cms[s.dataset.label]||'').trim()})).filter(c=>c.text);
-  function cmRefresh(){ const n=cmList().length, b=$('ka-cm-btn'); b.textContent = n ? `Komentár pre AI (${n})` : 'Komentár pre AI'; b.classList.toggle('has', n>0);
-    $('ka-cm-info').textContent = n ? `Komentáre na ${n} ${n===1?'slide':(n<5?'slidy':'slidov')}` : 'Ukladá sa priebežne'; }
-  function cmShow(){ const s=slides[cur]; $('ka-cm-h').textContent = `Komentár pre AI, slide ${cur+1}: ${s?s.dataset.label:''}`; cmTxt.value = s ? (cms[s.dataset.label]||'') : ''; }
-  function toast(m){const t=$('ka-toast');t.textContent=m;t.style.display='block';clearTimeout(t._h);t._h=setTimeout(()=>t.style.display='none',3500);}
-  function changes(){
-    const out=[];
-    els.forEach(el=>{const now=norm(el.textContent); if(now!==el.dataset.orig){const s=el.closest('section'); out.push({slide:slides.indexOf(s)+1,label:s.dataset.label,id:el.dataset.edit,old:el.dataset.orig,new:now});}});
-    slides.forEach((s,i)=>{if(norm(s.dataset.speakerNotes)!==norm(s.dataset.origNotes)) out.push({slide:i+1,label:s.dataset.label,id:'poznamky',old:s.dataset.origNotes,new:s.dataset.speakerNotes});});
-    return out;
-  }
-  function refresh(){const n=changes().length; $('ka-save').textContent = n ? `Poslať úpravy Hermesovi (${n})` : 'Poslať úpravy Hermesovi'; els.forEach(el=>el.classList.toggle('changed', norm(el.textContent)!==el.dataset.orig));}
-  function showNotes(){const s=slides[cur]; notesTxt.textContent = s ? (s.dataset.speakerNotes||'') : ''; $('ka-notes-h').textContent = `Poznámky, slide ${cur+1}: ${s?s.dataset.label:''}`;}
-  deck.addEventListener('slidechange', e => {cur = e.detail.index; showNotes(); cmShow();});
-  $('ka-cm-btn').onclick = () => { cmBox.classList.toggle('open'); cmShow(); if (cmBox.classList.contains('open')) cmTxt.focus(); };
-  $('ka-cm-x').onclick = () => cmBox.classList.remove('open');
-  cmTxt.addEventListener('input', () => { const s=slides[cur]; if(!s) return; const v=cmTxt.value; if (v.trim()) cms[s.dataset.label]=v; else delete cms[s.dataset.label];
-    try { localStorage.setItem(CMKEY, JSON.stringify(cms)); } catch(e) {} cmRefresh(); });
-  cmTxt.addEventListener('keydown', e => { if (e.key === 'Escape') { cmBox.classList.remove('open'); cmTxt.blur(); } e.stopPropagation(); });
-  $('ka-edit').onclick = () => {
-    editing = !editing; document.body.classList.toggle('editing', editing);
-    els.forEach(el => el.contentEditable = editing ? 'true' : 'false');
-    notesTxt.contentEditable = editing ? 'true' : 'false';
-    $('ka-edit').textContent = editing ? 'Hotovo' : 'Upraviť texty';
-    $('ka-save').hidden = !editing;
-    if (editing) { notesBox.classList.add('open'); showNotes(); toast('Kliknite do textu na slide alebo do poznámok a prepíšte ho.'); }
-    refresh();
-  };
-  $('ka-notes-btn').onclick = () => { notesBox.classList.toggle('open'); showNotes(); };
-  document.addEventListener('input', e => {
-    if (e.target === notesTxt) { slides[cur].dataset.speakerNotes = norm(notesTxt.textContent); slides[cur].setAttribute('data-speaker-notes', slides[cur].dataset.speakerNotes); }
-    refresh();
-  });
-  document.addEventListener('paste', e => { if (!editing) return; e.preventDefault(); document.execCommand('insertText', false, (e.clipboardData||window.clipboardData).getData('text/plain')); });
-  $('ka-save').onclick = async () => {
-    const ch = changes(), cl = cmList();
-    if (!ch.length && !cl.length) { toast('Zatiaľ nie sú žiadne zmeny ani komentáre.'); return; }
-    let lines = ch.map(c => `- slide ${c.slide} (${c.label}), ${c.id}: "${c.old}" => "${c.new}"`).join('\n');
-    if (cl.length) lines += (lines ? '\n' : '') + 'Komentáre pre AI (čo treba na slide urobiť):\n' + cl.map(c => `- slide ${c.slide} (${c.label}): ${c.text.replace(/\s*\n\s*/g,' / ')}`).join('\n');
-    const msg = `Úpravy z editora decku. Súbor: ${FILE}\nZapíš ich do novej verzie decku (_vX-popis-zmeny), pôvodnú neprepisuj, a ukáž mi náhľad.\n${lines}`;
-    if (window.hermes && typeof window.hermes.send === 'function') { window.hermes.send(msg); toast('Odoslané Hermesovi, pripravuje novú verziu.'); cms = {}; try { localStorage.removeItem(CMKEY); } catch(e) {} cmRefresh(); cmShow(); }
-    else { try { await navigator.clipboard.writeText(msg); toast('Úpravy sú skopírované. Vložte ich do chatu s Hermesom.'); } catch(err) { prompt('Skopírujte a vložte do chatu s Hermesom:', msg); } }
-  };
-  document.addEventListener('fullscreenchange', () => { const fs = !!document.fullscreenElement; $('ka-bar').style.display = fs ? 'none' : 'flex'; if (fs) { notesBox.classList.remove('open'); cmBox.classList.remove('open'); } });
-  $('ka-cm-send').onclick = () => $('ka-save').onclick();
-  showNotes(); cmShow(); cmRefresh();
-})();
-</script>
+
 
 <script>
 (function(){
@@ -3801,9 +3711,28 @@ border-radius:12px;padding:10px 12px;font:400 15px/1.45 var(--font)}
   window.kaStep = (i, n) => set(slides[i], n);
 })();
 </script>
+<style>
+#fs-btn{position:fixed;right:18px;top:14px;z-index:2147483000;display:flex;align-items:center;gap:8px;font:600 14px var(--font,system-ui);border:0;border-radius:999px;padding:10px 16px;cursor:pointer;background:rgba(244,241,232,.92);color:#070606;box-shadow:0 4px 18px rgba(0,0,0,.35);opacity:.85;transition:opacity .2s}
+#fs-btn:hover{opacity:1}
+#fs-btn svg{width:16px;height:16px}
+:fullscreen #fs-btn,:-webkit-full-screen #fs-btn{display:none}
+@media print{#fs-btn{display:none!important}}
+</style>
+<button id="fs-btn" type="button" title="Celá obrazovka (F)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Celá obrazovka</button>
 <script>
-document.addEventListener('keydown',e=>{if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey&&!e.altKey&&!(e.target&&e.target.isContentEditable)){e.preventDefault();document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}});
-document.addEventListener('dblclick',()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});});
+(function(){
+  const d=document, root=d.documentElement, btn=d.getElementById('fs-btn');
+  const isFs=()=>!!(d.fullscreenElement||d.webkitFullscreenElement);
+  const enter=()=>{const r=root.requestFullscreen||root.webkitRequestFullscreen; if(r){const p=r.call(root); if(p&&p.catch)p.catch(()=>{});}};
+  const exit=()=>{const x=d.exitFullscreen||d.webkitExitFullscreen; if(x)x.call(d);};
+  const toggle=()=>isFs()?exit():enter();
+  if(!(root.requestFullscreen||root.webkitRequestFullscreen)) btn.style.display='none';
+  btn.addEventListener('click',e=>{e.stopPropagation();toggle();btn.blur();});
+  const sync=()=>{btn.style.display=isFs()?'none':'';};
+  d.addEventListener('fullscreenchange',sync); d.addEventListener('webkitfullscreenchange',sync);
+  d.addEventListener('keydown',e=>{if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey&&!e.altKey){e.preventDefault();toggle();}});
+  d.addEventListener('dblclick',e=>{if(e.target!==btn)toggle();});
+})();
 </script>
 </body>
 </html>

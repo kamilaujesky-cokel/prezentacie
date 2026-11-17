@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Content plan KA</title>
+<style>
+:root{--ink:#14161A;--mut:#6B7280;--line:#E7E9EE;--bg:#F6F7F9;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:var(--ink);-webkit-text-size-adjust:100%;overflow-x:hidden}
+.t,.prev,.ce{overflow-wrap:anywhere}
+.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+h1{font-size:26px;margin:0;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:13.5px;margin-top:4px}
+.btns{display:flex;gap:8px}
+button,.lnk{font:inherit;font-size:13.5px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;text-decoration:none;min-height:38px;display:inline-flex;align-items:center;gap:6px}
+button:hover,.lnk:hover{border-color:#C9CDD3}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0 10px;margin-bottom:6px;display:flex;flex-direction:column;gap:9px}
+.row1{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;background:#E9EBEF;border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;min-height:32px;padding:6px 13px}
+.seg button.on{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08);font-weight:600}
+.chip{opacity:.45}.chip.on{opacity:1;border-color:#C9CDD3;font-weight:600}
+.chip .ic{width:18px;height:18px}
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.stat{font-size:12.5px;padding:5px 10px;border-radius:999px;cursor:pointer;border:1px solid transparent;user-select:none}
+.stat.on{border-color:currentColor}
+.ic{display:inline-block;width:22px;height:22px;flex:none}.ic svg{width:100%;height:100%;display:block}
+.off{filter:grayscale(1);opacity:.28}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pub{background:#DCFCE7;color:#166534}.ok{background:#DBEAFE;color:#1E40AF}.todo{background:#FEF3C7;color:#92400E}.empty{background:#F1F2F4;color:#8A9099}.late{background:#FEE2E2;color:#991B1B}
+/* zoznam */
+.week{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+.wk{display:flex;justify-content:space-between;padding:10px 16px;background:#FBFBFC;border-bottom:1px solid var(--line);font-size:13.5px}.wk span{color:var(--mut)}
+.item{border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}
+.head{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;padding:12px 16px;align-items:center;cursor:pointer}
+.item.today{background:#FFF8E6}
+.date{display:flex;flex-direction:column;align-items:center;line-height:1}
+.dn{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}.dd{font-size:23px;font-weight:700;margin:3px 0 1px}.mm{font-size:11px;color:var(--mut)}
+.t{font-weight:650;font-size:15.5px}.prev{color:#4B5160;font-size:13px;margin-top:3px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.miss{color:#B45309;font-style:italic}
+.side{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.icons{display:flex;gap:4px}
+.blank .head{padding-top:7px;padding-bottom:7px;cursor:default}.blank .t{color:#A0A6B0;font-weight:400;font-size:13.5px}.blank .dd{font-size:17px;color:#A0A6B0}
+.dnes{background:#F59E0B;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px;vertical-align:2px;margin-left:5px}
+.detail{display:none;padding:0 16px 16px 80px}
+.item.open .detail{display:block}.item.open .prev{display:none}
+.copy{white-space:pre-wrap;font-size:14px;line-height:1.5;background:#F8F9FB;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.com{font-size:13px;color:#B91C1C;margin-top:8px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center;font-size:12.5px;color:var(--mut)}
+/* mesiac */
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.gh{font-size:11px;color:var(--mut);text-transform:uppercase;text-align:center;letter-spacing:.06em;padding:4px 0}
+.cell{background:#fff;border:1px solid var(--line);border-radius:10px;min-height:118px;padding:7px;display:flex;flex-direction:column;gap:5px;cursor:pointer;overflow:hidden}
+.cell.out{background:transparent;border-style:dashed;cursor:default}
+.cell.today{border:2px solid #F59E0B}
+.cn{font-weight:700;font-size:14px;display:flex;justify-content:space-between}
+.ce{font-size:12px;line-height:1.25;border-radius:7px;padding:5px 6px}
+.ce .icons{margin-top:4px;gap:2px;flex-wrap:wrap}.nonet{font-size:10.5px;color:#92400E}.ce .ic{width:15px;height:15px}
+.ce.pub{background:#ECFDF3}.ce.ok{background:#EFF6FF}.ce.todo{background:#FFFBEB}.ce.late{background:#FEF2F2}
+.mhead{display:flex;justify-content:space-between;align-items:center;margin:4px 0 10px}
+.mhead b{font-size:18px}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(15,17,21,.45);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.modal.show{display:flex}
+.sheet{background:#fff;width:100%;max-width:640px;max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;padding:18px 18px 28px}
+@media(min-width:700px){.modal{align-items:center}.sheet{border-radius:18px}}
+.sheet h3{margin:0 0 4px;font-size:18px}
+.sheet .x{float:right}
+.err{background:#FEE2E2;color:#991B1B;padding:12px 14px;border-radius:10px;margin:12px 0;display:none}
+.load{color:var(--mut);padding:30px 0;text-align:center}
+@media(max-width:640px){
+ .head{grid-template-columns:44px minmax(0,1fr)}
+ .side{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between}
+ .detail{padding:0 14px 14px 14px}
+ .bar{position:static}
+ .cell{min-height:74px;padding:4px}.ce .t2{display:none}.ce{padding:3px}.ce .icons{margin-top:0}.ce .ic{width:13px;height:13px}.grid{gap:4px}
+ h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>Content plan: Kamil Aujesky</h1><div class="sub" id="sub">Načítavam z tabuľky…</div></div>
+  <div class="btns"><button id="reload" title="Načítať znova">Obnoviť</button><a class="lnk" id="sheetlink" target="_blank" rel="noopener">Otvoriť tabuľku</a></div>
+</header>
+<div class="bar">
+  <div class="row1">
+    <div class="seg" id="view"><button data-v="list" class="on">Zoznam</button><button data-v="month">Mesiac</button></div>
+    <div class="seg" id="range"><button data-r="future" class="on">Od dnes</button><button data-r="all">Všetko</button></div>
+    <button id="blanks">Skryť voľné dni</button>
+  </div>
+  <div class="row1" id="chips"></div>
+  <div class="stats" id="stats"></div>
+</div>
+<div class="err" id="err"></div>
+<div id="out"><div class="load">Načítavam…</div></div>
+</div>
+<div class="modal" id="modal"><div class="sheet" id="msheet"></div></div>
+
+<script>
+const SHEET_ID = "1g3wX9gdDaQKRSfpZCeAUMs7aJMmzrZ9vjnjnN1KXGfU";
+const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv`;
+document.getElementById('sheetlink').href = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
+
+const ICON = {
+ ig:['#E1306C','Instagram','<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="6" fill="currentColor"/><rect x="6" y="6" width="12" height="12" rx="4" fill="none" stroke="#fff" stroke-width="1.9"/><circle cx="12" cy="12" r="2.9" fill="none" stroke="#fff" stroke-width="1.9"/><circle cx="16.4" cy="7.6" r="1.1" fill="#fff"/></svg>'],
+ fb:['#1877F2','Facebook','<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="currentColor"/><path d="M13.3 20.5v-6.6h2.2l.4-2.6h-2.6V9.7c0-.8.3-1.3 1.4-1.3h1.3V6.1c-.3 0-1.1-.1-2-.1-2 0-3.3 1.2-3.3 3.4v1.9H8.5v2.6h2.2v6.6z" fill="#fff"/></svg>'],
+ li:['#0A66C2','LinkedIn','<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3.5" fill="currentColor"/><rect x="5.6" y="9.6" width="2.8" height="8.6" fill="#fff"/><circle cx="7" cy="6.6" r="1.7" fill="#fff"/><path d="M10.6 9.6h2.7v1.2c.5-.8 1.5-1.4 2.9-1.4 2.3 0 3 1.4 3 3.6v5.2h-2.8v-4.6c0-1.1-.3-1.9-1.4-1.9s-1.6.8-1.6 1.9v4.6h-2.8z" fill="#fff"/></svg>'],
+ yt:['#FF0000','YouTube','<svg viewBox="0 0 24 24"><rect x="1.5" y="5" width="21" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#fff"/></svg>'],
+ tt:['#111111','TikTok','<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/><path d="M13.2 5.5h2.3c.2 1.6 1.2 2.7 2.8 2.9v2.3c-1.1 0-2-.3-2.8-.9v4.6a3.9 3.9 0 1 1-3.9-3.9c.2 0 .4 0 .6.1v2.4a1.6 1.6 0 1 0 1 1.5z" fill="#fff"/></svg>'],
+};
+const NETS = ['ig','fb','li','yt','tt'];
+const DNI = ['Po','Ut','St','Št','Pi','So','Ne'];
+const MES = ['jan','feb','mar','apr','máj','jún','júl','aug','sep','okt','nov','dec'];
+const MESF = ['január','február','marec','apríl','máj','jún','júl','august','september','október','november','december'];
+const STAT = {pub:'publikované', ok:'schválené, čaká', todo:'na schválenie', late:'mešká', empty:'voľné'};
+
+const st = JSON.parse(localStorage.getItem('cpka')||'{}');
+const S = Object.assign({view:'list', range:'future', hideBlank:false, nets:[], stats:[], month:null}, st);
+const save = () => localStorage.setItem('cpka', JSON.stringify(S));
+let ITEMS = [];
+
+function icon(k, on=true){const [c,n,svg]=ICON[k];return `<span class="ic ${on?'':'off'}" style="color:${c}" title="${n}">${svg}</span>`}
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const today = new Date(); today.setHours(0,0,0,0);
+
+function parseCSV(t){
+  const rows=[];let r=[],f='',q=false;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){ if(c=='"'){ if(t[i+1]=='"'){f+='"';i++} else q=false } else f+=c }
+    else if(c=='"') q=true; else if(c==','){r.push(f);f=''} else if(c=='\n'){r.push(f);rows.push(r);r=[];f=''} else if(c!='\r') f+=c;
+  }
+  if(f||r.length){r.push(f);rows.push(r)}
+  return rows;
+}
+function statusOf(it){
+  if(!it.title) return 'empty';
+  if(it.pub) return 'pub';
+  if(it.date < today) return 'late';
+  return it.ok ? 'ok' : 'todo';
+}
+async function load(){
+  document.getElementById('err').style.display='none';
+  try{
+    const res = await fetch(CSV_URL + '&_=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const rows = parseCSV(await res.text());
+    const h = rows[0].map(x=>x.trim());
+    const ix = n => h.indexOf(n);
+    const get = (r,n) => (ix(n)>=0 && r[ix(n)]!==undefined ? r[ix(n)] : '').trim();
+    const T = v => v.toUpperCase()==='TRUE';
+    ITEMS = rows.slice(1).filter(r=>get(r,'Dátum')).map(r=>{
+      const [m,d,y] = get(r,'Dátum').split('/').map(Number);
+      const it = {date:new Date(y,m-1,d), title:get(r,'Názov videa'), copy:get(r,'COPY'), ok:T(get(r,'Schválené?')), pub:T(get(r,'Published?')),
+        net:{yt:T(get(r,'YT')), li:T(get(r,'LI')), fb:T(get(r,'FB/IG')), ig:T(get(r,'FB/IG')), tt:T(get(r,'TT'))}, comment:get(r,'Comment')};
+      it.st = statusOf(it); return it;
+    }).filter(it=>!isNaN(it.date)).sort((a,b)=>a.date-b.date);
+    ITEMS.forEach((it,i)=>it.id=i);
+    const now = new Date();
+    document.getElementById('sub').textContent = `Živé dáta z tabuľky od Mediacrew, načítané ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}. Klikni na príspevok pre celé copy.`;
+    render();
+  }catch(e){
+    const el=document.getElementById('err'); el.style.display='block';
+    el.textContent = 'Tabuľku sa nepodarilo načítať ('+e.message+'). Skontroluj, či je zdieľaná cez odkaz, alebo ju otvor priamo.';
+    document.getElementById('out').innerHTML='';
+  }
+}
+function visible(it){
+  if(S.range==='future' && it.date < today && S.view==='list') return false;
+  if(!it.title) return !S.hideBlank && !S.nets.length && !S.stats.length;
+  if(S.nets.length && !S.nets.some(n=>it.net[n])) return false;
+  if(S.stats.length && !S.stats.includes(it.st)) return false;
+  return true;
+}
+function controls(){
+  document.querySelectorAll('#view button').forEach(b=>b.classList.toggle('on', b.dataset.v===S.view));
+  document.querySelectorAll('#range button').forEach(b=>b.classList.toggle('on', b.dataset.r===S.range));
+  document.getElementById('range').style.display = S.view==='list' ? '' : 'none';
+  document.getElementById('blanks').textContent = S.hideBlank ? 'Ukázať voľné dni' : 'Skryť voľné dni';
+  document.getElementById('chips').innerHTML = NETS.map(k=>`<button class="chip ${!S.nets.length||S.nets.includes(k)?'on':''}" data-n="${k}">${icon(k)}${ICON[k][1]}</button>`).join('')
+    + (S.nets.length||S.stats.length ? '<button id="clear">Zrušiť filtre</button>' : '');
+  const filled = ITEMS.filter(i=>i.title && (S.range!=='future'||S.view!=='list'||i.date>=today));
+  const cnt = k => k==='empty' ? ITEMS.filter(i=>!i.title && i.date>=today).length : filled.filter(i=>i.st===k).length;
+  document.getElementById('stats').innerHTML = ['late','todo','ok','pub','empty'].filter(k=>cnt(k)||S.stats.includes(k)).map(k=>
+    `<span class="stat pill ${k} ${S.stats.includes(k)?'on':''}" data-s="${k}">${STAT[k]}: ${cnt(k)}</span>`).join('');
+}
+function entryHead(it){
+  const d = it.date, isT = +d===+today;
+  const prev = it.copy ? `<div class="prev">${esc(it.copy)}</div>` : (it.title ? '<div class="prev miss">chýba copy</div>' : '');
+  return `<div class="head" data-id="${it.id}">
+    <div class="date"><span class="dn">${DNI[(d.getDay()+6)%7]}</span><span class="dd">${d.getDate()}.</span><span class="mm">${MES[d.getMonth()]}</span></div>
+    <div><div class="t">${it.title?esc(it.title):'nič naplánované'}${isT?'<span class="dnes">DNES</span>':''}</div>${prev}</div>
+    <div class="side">${it.title?`<div class="icons">${NETS.map(k=>icon(k,it.net[k])).join('')}</div><span class="pill ${it.st}">${STAT[it.st]}</span>`:''}</div></div>`;
+}
+function detail(it){
+  return `${it.copy?`<div class="copy">${esc(it.copy)}</div>`:'<div class="copy miss">Copy zatiaľ chýba.</div>'}
+   ${it.comment?`<div class="com">Poznámka: ${esc(it.comment)}</div>`:''}
+   <div class="meta">${it.copy?`<button class="cp" data-id="${it.id}">Kopírovať copy</button>`:''}
+   <span>Siete: ${NETS.filter(k=>it.net[k]).map(k=>ICON[k][1]).join(', ')||'žiadne'}</span></div>`;
+}
+function renderList(){
+  const weeks = new Map();
+  ITEMS.filter(visible).forEach(it=>{const m=new Date(it.date); m.setDate(m.getDate()-((m.getDay()+6)%7)); const k=iso(m); if(!weeks.has(k)) weeks.set(k,{m,items:[]}); weeks.get(k).items.push(it)});
+  if(!weeks.size) return '<div class="load">Nič nevyhovuje filtru.</div>';
+  return [...weeks.values()].map(({m,items})=>{
+    const su=new Date(m); su.setDate(su.getDate()+6);
+    const n=items.filter(i=>i.title).length;
+    return `<section class="week"><div class="wk"><b>Týždeň ${m.getDate()}. ${MES[m.getMonth()]} až ${su.getDate()}. ${MES[su.getMonth()]}</b><span>${n} ${n==1?'príspevok':n>=2&&n<=4?'príspevky':'príspevkov'}</span></div>`+
+      items.map(it=>`<div class="item ${it.title?'':'blank'} ${+it.date===+today?'today':''}" id="it${it.id}">${entryHead(it)}${it.title?`<div class="detail">${detail(it)}</div>`:''}</div>`).join('')+'</section>';
+  }).join('');
+}
+function renderMonth(){
+  const base = S.month ? new Date(S.month+'-01T00:00:00') : new Date(today.getFullYear(), today.getMonth(), 1);
+  const y=base.getFullYear(), mo=base.getMonth();
+  const first=new Date(y,mo,1), start=new Date(first); start.setDate(1-((first.getDay()+6)%7));
+  const last=new Date(y,mo+1,0), end=new Date(last); end.setDate(last.getDate()+(6-(last.getDay()+6)%7));
+  let h=`<div class="mhead"><button data-mo="-1">‹ Predošlý</button><b>${MESF[mo]} ${y}</b><button data-mo="1">Ďalší ›</button></div><div class="grid">`+DNI.map(d=>`<div class="gh">${d}</div>`).join('');
+  for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
+    const inM=d.getMonth()===mo, its=ITEMS.filter(i=>+i.date===+d && i.title && visible(i));
+    h+=`<div class="cell ${inM?'':'out'} ${+d===+today?'today':''}" data-day="${iso(d)}"><div class="cn"><span>${d.getDate()}</span></div>`+
+      its.map(i=>`<div class="ce ${i.st}" data-id="${i.id}"><div class="t2">${esc(i.title)}</div><div class="icons">${NETS.filter(k=>i.net[k]).map(k=>icon(k)).join('')||'<span class="nonet">bez sietí</span>'}</div></div>`).join('')+'</div>';
+  }
+  return h+'</div>';
+}
+function render(){ controls(); document.getElementById('out').innerHTML = S.view==='list' ? renderList() : renderMonth(); save(); }
+function openModal(id){
+  const it=ITEMS[id], d=it.date;
+  document.getElementById('msheet').innerHTML = `<button class="x" onclick="closeModal()">Zavrieť</button>
+   <div class="sub">${DNI[(d.getDay()+6)%7]} ${d.getDate()}. ${MES[d.getMonth()]}</div><h3>${esc(it.title)}</h3>
+   <div class="meta" style="margin:8px 0 12px"><div class="icons">${NETS.map(k=>icon(k,it.net[k])).join('')}</div><span class="pill ${it.st}">${STAT[it.st]}</span></div>${detail(it)}`;
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+document.addEventListener('click', e=>{
+  const t=e.target.closest('button,[data-id],[data-s],.modal'); if(!t) return;
+  if(t.id==='modal' && e.target===t) return closeModal();
+  if(t.matches('#view button')){S.view=t.dataset.v; return render()}
+  if(t.matches('#range button')){S.range=t.dataset.r; return render()}
+  if(t.id==='blanks'){S.hideBlank=!S.hideBlank; return render()}
+  if(t.id==='reload') return load();
+  if(t.id==='clear'){S.nets=[];S.stats=[];return render()}
+  if(t.dataset.mo){const b=S.month?new Date(S.month+'-01T00:00:00'):new Date(today.getFullYear(),today.getMonth(),1); b.setMonth(b.getMonth()+Number(t.dataset.mo)); S.month=`${b.getFullYear()}-${String(b.getMonth()+1).padStart(2,'0')}`; return render()}
+  if(t.dataset.n){const n=t.dataset.n; S.nets = S.nets.includes(n) ? S.nets.filter(x=>x!==n) : [...S.nets,n]; return render()}
+  if(t.dataset.s){const s=t.dataset.s; S.stats = S.stats.includes(s) ? S.stats.filter(x=>x!==s) : [...S.stats,s]; return render()}
+  if(t.classList.contains('cp')){navigator.clipboard.writeText(ITEMS[t.dataset.id].copy).then(()=>{t.textContent='Skopírované'; setTimeout(()=>t.textContent='Kopírovať copy',1500)}); return}
+  if(t.classList.contains('ce')) return openModal(Number(t.dataset.id));
+  if(t.classList.contains('head') && ITEMS[t.dataset.id].title){document.getElementById('it'+t.dataset.id).classList.toggle('open'); return}
+});
+document.addEventListener('keydown', e=>{if(e.key==='Escape') closeModal()});
+load();
+</script>
+</body>
+</html>
